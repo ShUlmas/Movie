@@ -20,7 +20,7 @@ struct Movies: Codable {
 }
 
 // MARK: - Result
-struct Movie: Codable {
+struct Movie: Codable, Hashable {
     let id: Int
     let adult: Bool?
     let backdropPath: String?

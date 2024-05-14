@@ -18,7 +18,7 @@ class MovieDetailViewViewModel {
     public var sections: [SectionType] = []
     private let dataFetcherService = DataFetcherService()
     
-    private var movieDetails: MovieDetailsCollectionViewCellViewModel?
+    public var movieDetails: MovieDetailsCollectionViewCellViewModel?
     private var movieCredits: [TopCastsCollectionViewCellViewModel] = []
     private var similarMovies: [SimilarMovieViewModel] = []
     
@@ -59,6 +59,15 @@ class MovieDetailViewViewModel {
             self.setupSection()
             completion()
         }
+    }
+    
+    public func favouriteButtonTap(completed: @escaping(MError?) -> Void) {
+        let favouriteMovie = FavouriteMovie(
+            id: movieDetails?.id ?? 0,
+            imageUrlStr: movieDetails?.movieImageUrlString ?? "no url",
+            movieName: movieDetails?.movieTitle ?? "no name",
+            movieGenre: movieDetails?.movieGenre ?? "no genre")
+        PersistanceManager.update(favorite: favouriteMovie, actionType: .add, completed: completed)
     }
     
     //MARK: - section layouts

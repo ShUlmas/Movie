@@ -125,9 +125,9 @@ extension PersonsViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = PersonDetailViewController()
-        vc.viewModel.id = viewModel.persons[indexPath.item].id
-        navigationController?.pushViewController(vc, animated: true)
+//        let vc = PersonDetailViewController()
+//        vc.viewModel.id = viewModel.persons[indexPath.item].id
+//        navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

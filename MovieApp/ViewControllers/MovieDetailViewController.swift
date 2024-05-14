@@ -75,7 +75,7 @@ class MovieDetailViewController: UIViewController {
         backButton.tintColor = .white
         navigationItem.leftBarButtonItem = backButton
         
-        let searchButton = UIBarButtonItem(image: UIImage(named: "heart"), style: .done, target: self, action: #selector(heartButtonTap))
+        let searchButton = UIBarButtonItem(image: UIImage(systemName: "heart.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: .black)), style: .done, target: self, action: #selector(heartButtonTap))
         searchButton.tintColor = .white
         navigationItem.rightBarButtonItem = searchButton
     }
@@ -133,7 +133,25 @@ class MovieDetailViewController: UIViewController {
     //MARK: - Actions
     
     @objc func heartButtonTap() {
-        navigationController?.navigationItem.rightBarButtonItem?.tintColor = .systemRed
+        viewModel.favouriteButtonTap { mError in
+            guard let mError = mError else {
+                self.presentAlert(title: "♥️", message: mError?.rawValue ?? "Movie added to favourites", buttonTitle: "Ok")
+                return
+            }
+            self.presentAlert(title: "🤍", message: mError.rawValue, buttonTitle: "Ok")
+        }
+        
+        DispatchQueue.main.async {
+            self.navigationItem.rightBarButtonItem?.tintColor = .red
+        }
+    }
+    
+    private func presentAlert(title: String, message: String, buttonTitle: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: buttonTitle, style: .cancel)
+        alert.addAction(action)
+        
+        present(alert, animated: true)
     }
     
     @objc func backButtonTap() {

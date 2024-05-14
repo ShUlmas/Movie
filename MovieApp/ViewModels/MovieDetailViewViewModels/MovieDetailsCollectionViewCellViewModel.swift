@@ -44,4 +44,8 @@ class MovieDetailsCollectionViewCellViewModel {
     public var movieImageUrlString: String {
         return Constants.shared.imageBaseUrl + (movieDetails!.posterPath ?? "")
     }
+    
+    public var id: Int {
+        return movieDetails?.id ?? 0
+    }
 }

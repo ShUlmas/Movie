@@ -1,5 +1,5 @@
 {
-  "originHash" : "134c07056a52988908fdc8c8137fb529489f7aef3ddf1e9c47c5573e8200ef8b",
+  "originHash" : "be7cb1142b359f27ca27f419cbe1ec898d6d3424137b6e20ffeeb1f93df4c55b",
   "pins" : [
     {
       "identity" : "lottie-ios",
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage.git",
       "state" : {
-        "revision" : "f6afa0132961d593f07970d84e2d8b588c29ea04",
-        "version" : "5.19.1"
+        "revision" : "5642d1ffe3dbe628592443bd14154e31929727b4",
+        "version" : "5.19.2"
       }
     }
   ],
