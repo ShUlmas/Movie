@@ -92,3 +92,6 @@ extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
         150
     }
 }
+
+
+// Ol bn oylq
